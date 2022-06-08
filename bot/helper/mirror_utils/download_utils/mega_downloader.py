@@ -120,7 +120,7 @@ class MegaDownloader:
             if mname is not None:
                 smsg, button = GoogleDriveHelper().drive_list(mname, True)
                 if smsg:
-                    msg1 = "File/Folder is already available in Drive.\nHere are the search results:"
+                    msg1 = "😁فایل/پوشه از قبل در Drive موجود است.\n در اینجا نتایج جستجو آمده است:"
                     return sendMarkup(msg1, self.__listener.bot, self.__listener.message, button)
         self.__onDownloadStart(file_name, file_size, gid)
         LOGGER.info(f'Mega download started with gid: {gid}')
