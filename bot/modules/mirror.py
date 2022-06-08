@@ -12,7 +12,8 @@ from telegram.ext import CommandHandler
 from telegram import InlineKeyboardMarkup
 
 from bot import Interval, INDEX_URL, VIEW_LINK, aria2, QB_SEED, dispatcher, DOWNLOAD_DIR, \
-                download_dict, download_dict_lock, TG_SPLIT_SIZE, LOGGER, MEGA_KEY, DB_URI, INCOMPLETE_TASK_NOTIFIER
+                download_dict, download_dict_lock, TG_SPLIT_SIZE, LOGGER, MEGA_KEY, DB_URI, INCOMPLETE_TASK_NOTIFIER, BUTTON_FOUR_NAME, BUTTON_FOUR_URL, BUTTON_FIVE_NAME, BUTTON_FIVE_URL, \
+                BUTTON_SIX_NAME, BUTTON_SIX_URL,
 from bot.helper.ext_utils.bot_utils import is_url, is_magnet, is_gdtot_link, is_mega_link, is_gdrive_link, get_content_type
 from bot.helper.ext_utils.fs_utils import get_base_name, get_path_size, split_file, clean_download
 from bot.helper.ext_utils.exceptions import DirectDownloadLinkException, NotSupportedExtractionArchive
@@ -220,10 +221,10 @@ class MirrorListener:
                 if INDEX_URL is not None:
                     url_path = rutils.quote(f'{name}')
                     share_url = f'{INDEX_URL}/{url_path}'
-                    msg += f"\n┃\n<a href='{share_url}'>┣ 🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
+                    msg += f"\n┃\n┣<a href='{share_url}'>🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
                 else:
                     share_url = f'{INDEX_URL}/{url_path}'
-                    msg += f"\n<a href='{share_url}'>┣ 🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
+                    msg += f"\n┣<a href='{share_url}'>🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
 
             msg += f'\n┃\n<b>┗ 👤𝐔𝐬𝐞𝐫: </b>{self.tag}'
             buttons = ButtonMaker()
@@ -240,6 +241,14 @@ class MirrorListener:
                     if VIEW_LINK:
                         share_urls = f'{INDEX_URL}/{url_path}?a=view'
                         buttons.buildbutton("🌐 Drive Link", share_urls)
+
+            if BUTTON_FOUR_NAME is not None and BUTTON_FOUR_URL is not None:
+                buttons.buildbutton(f"{BUTTON_FOUR_NAME}", f"{BUTTON_FOUR_URL}")
+            if BUTTON_FIVE_NAME is not None and BUTTON_FIVE_URL is not None:
+                buttons.buildbutton(f"{BUTTON_FIVE_NAME}", f"{BUTTON_FIVE_URL}")
+            if BUTTON_SIX_NAME is not None and BUTTON_SIX_URL is not None:
+                buttons.buildbutton(f"{BUTTON_SIX_NAME}", f"{BUTTON_SIX_URL}")
+
             sendMarkup(msg, self.bot, self.message, InlineKeyboardMarkup(buttons.build_menu(2)))
             if self.isQbit and QB_SEED and not self.extract:
                 if self.isZip:
