@@ -24,7 +24,7 @@ def add_gd_download(link, listener, is_gdtot):
         if gname is not None:
             gmsg, button = GoogleDriveHelper().drive_list(gname, True)
             if gmsg:
-                msg = "File/Folder is already available in Drive.\nHere are the search results:"
+                msg = "😁فایل/پوشه از قبل در Drive موجود است.\n در اینجا نتایج جستجو آمده است:"
                 return sendMarkup(msg, listener.bot, listener.message, button)
     LOGGER.info(f"Download Name: {name}")
     drive = GoogleDriveHelper(name, listener)
