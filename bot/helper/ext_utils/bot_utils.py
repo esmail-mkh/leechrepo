@@ -131,13 +131,13 @@ def get_readable_message():
                 MirrorStatus.STATUS_SPLITTING,
                 MirrorStatus.STATUS_SEEDING,
             ]:
-                msg += f"\n┣ {get_progress_bar_string(download)} {download.progress()}"
+                msg += f"\n<b>┣</b> ⊹{get_progress_bar_string(download)} {download.progress()}"
                 if download.status() == MirrorStatus.STATUS_CLONING:
-                    msg += f"\n<b>┣ ⊹𝐂𝐥𝐨𝐧𝐞𝐝:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
+                    msg += f"\n<b>┣ ⊹𝐂𝐥𝐨𝐧𝐞𝐝:</b> {get_readable_file_size(download.processed_bytes())} 𝐨𝐟 {download.size()}"
                 elif download.status() == MirrorStatus.STATUS_UPLOADING:
-                    msg += f"\n<b>┣ ⊹𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
+                    msg += f"\n<b>┣ ⊹𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝:</b> {get_readable_file_size(download.processed_bytes())} 𝐨𝐟 {download.size()}"
                 else:
-                    msg += f"\n<b>┣ ⊹𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐝:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
+                    msg += f"\n<b>┣ ⊹𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐝:</b> {get_readable_file_size(download.processed_bytes())} 𝐨𝐟 {download.size()}"
                 msg += f"\n<b>┣ ⊹𝐒𝐩𝐞𝐞𝐝:</b> {download.speed()} | <b>⊹𝐄𝐓𝐀:</b> {download.eta()}"
                 try:
                     msg += f"\n<b>┣ ⊹𝐒𝐞𝐞𝐝𝐞𝐫𝐬:</b> {download.aria_download().num_seeders}" \
@@ -153,7 +153,7 @@ def get_readable_message():
                     pass
                 msg += f"\n<b>┣ ⊹𝐔𝐬𝐞𝐫:</b> ️<a href='tg://user?id={download.message.from_user.id}'>{download.message.from_user.first_name}</a>"
                 msg += f"\n<b>┣ ⊹𝐄𝐥𝐚𝐩𝐬𝐞𝐝: </b>{get_readable_time(time() - download.message.date.timestamp())}"
-                msg += f"\n<code>┗ ⊹𝐂𝐚𝐧𝐜𝐞𝐥: /{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f"\n<b>┗ ⊹𝐂𝐚𝐧𝐜𝐞𝐥:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             elif download.status() == MirrorStatus.STATUS_SEEDING:
                 msg += f"\n<b>┣ ⊹𝐒𝐢𝐳𝐞: </b>{download.size()}"
                 msg += f"\n<b>┣ ⊹𝐒𝐩𝐞𝐞𝐝: </b>{get_readable_file_size(download.torrent_info().upspeed)}/s"
@@ -162,7 +162,7 @@ def get_readable_message():
                 msg += f" | <b>┣ ⊹𝐓𝐢𝐦𝐞: </b>{get_readable_time(download.torrent_info().seeding_time)}"
                 msg += f"\n<b>┣ ⊹𝐔𝐬𝐞𝐫:</b> ️<a href='tg://user?id={download.message.from_user.id}'>{download.message.from_user.first_name}</a>"
                 msg += f"\n<b>┣ ⊹𝐄𝐥𝐚𝐩𝐬𝐞𝐝: </b>{get_readable_time(time() - download.message.date.timestamp())}"
-                msg += f"\n<code>┗ ⊹𝐂𝐚𝐧𝐜𝐞𝐥: /{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f"\n<b>┗ ⊹𝐂𝐚𝐧𝐜𝐞𝐥:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             else:
                 msg += f"\n<b>┣ ⊹𝐒𝐢𝐳𝐞: </b>{download.size()}"
             msg += "\n\n"
