@@ -122,7 +122,7 @@ def get_readable_message():
                 globals()['COUNT'] -= STATUS_LIMIT
                 globals()['PAGE_NO'] -= 1
         for index, download in enumerate(list(download_dict.values())[COUNT:], start=1):
-            msg += f"<b>⋖ SoulLand Leecher ⋗</b>
+            msg += f"<b>⋖ SoulLand Leecher ⋗</b>"
             msg += f"<b>┏ Name:</b> <code>{escape(str(download.name()))}</code>"
             msg += f"\n<b>┣ Status:</b> <i>{download.status()}</i>"
             if download.status() not in [
