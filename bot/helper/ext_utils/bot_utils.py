@@ -123,7 +123,7 @@ def get_readable_message():
                 globals()['PAGE_NO'] -= 1
         for index, download in enumerate(list(download_dict.values())[COUNT:], start=1):
             msg += f"<b>⋖ SσυʅLαɳԃ Lҽҽƈԋҽɾ ⋗</b>"
-            msg += f"<b>┏ ⊹𝐍𝐚𝐦𝐞:</b> <code>{escape(str(download.name()))}</code>"
+            msg += f"\n<b>┏ ⊹𝐍𝐚𝐦𝐞:</b> <code>{escape(str(download.name()))}</code>"
             msg += f"\n<b>┣ ⊹𝐒𝐭𝐚𝐭𝐮𝐬:</b> <i>{download.status()}</i>"
             if download.status() not in [
                 MirrorStatus.STATUS_ARCHIVING,
