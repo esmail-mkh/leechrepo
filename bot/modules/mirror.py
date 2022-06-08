@@ -221,7 +221,7 @@ class MirrorListener:
                     url_path = rutils.quote(f'{name}')
                     share_url = f'{INDEX_URL}/{url_path}'
                     msg += f"\n┃\n<a href='{share_url}'>┣ 🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
-               else:
+                else:
                    share_url = f'{INDEX_URL}/{url_path}'
                     msg += f"\n<a href='{share_url}'>┣ 🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
 
