@@ -222,7 +222,7 @@ class MirrorListener:
                     share_url = f'{INDEX_URL}/{url_path}'
                     msg += f"\n┃\n<a href='{share_url}'>┣ 🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
                 else:
-                   share_url = f'{INDEX_URL}/{url_path}'
+                    share_url = f'{INDEX_URL}/{url_path}'
                     msg += f"\n<a href='{share_url}'>┣ 🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
 
             msg += f'\n┃\n<b>┗ 👤𝐔𝐬𝐞𝐫: </b>{self.tag}'
