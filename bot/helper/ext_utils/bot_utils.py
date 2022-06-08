@@ -142,21 +142,27 @@ def get_readable_message():
                 try:
                     msg += f"\n<b>┣ ⊹𝐒𝐞𝐞𝐝𝐞𝐫𝐬:</b> {download.aria_download().num_seeders}" \
                            f" | <b>⊹𝐏𝐞𝐞𝐫𝐬:</b> {download.aria_download().connections}"
+                    msg += f"\n<b>┣ ⊹𝐄𝐧𝐠𝐢𝐧𝐞:</b> <code>𝐀𝐫𝐢𝐚𝟐𝐜 𝐯𝟏.𝟑𝟓.𝟎</code>"
                 except:
                     pass
                 try:
                     msg += f"\n<b>┣ ⊹𝐒𝐞𝐞𝐝𝐞𝐫𝐬:</b> {download.torrent_info().num_seeds}" \
                            f" | <b>⊹𝐋𝐞𝐞𝐜𝐡𝐞𝐫𝐬:</b> {download.torrent_info().num_leechs}"
+                    msg += f"\n<b>┣ ⊹𝐄𝐧𝐠𝐢𝐧𝐞:</b> <code>𝐪𝐁𝐢𝐭𝐭𝐨𝐫𝐫𝐞𝐧𝐭 𝐯𝟒.𝟒.𝟐</code>"
                 except:
                     pass
-                msg += f"\n<code>┗ /{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f"\n<b>┣ ⊹𝐔𝐬𝐞𝐫:</b> ️<a href='tg://user?id={download.message.from_user.id}'>{download.message.from_user.first_name}</a>"
+                msg += f"\n<b>┣ ⊹𝐄𝐥𝐚𝐩𝐬𝐞𝐝: </b>{get_readable_time(time() - download.message.date.timestamp())}"
+                msg += f"\n<code>┗ ⊹𝐂𝐚𝐧𝐜𝐞𝐥: /{BotCommands.CancelMirror} {download.gid()}</code>"
             elif download.status() == MirrorStatus.STATUS_SEEDING:
                 msg += f"\n<b>┣ ⊹𝐒𝐢𝐳𝐞: </b>{download.size()}"
                 msg += f"\n<b>┣ ⊹𝐒𝐩𝐞𝐞𝐝: </b>{get_readable_file_size(download.torrent_info().upspeed)}/s"
                 msg += f" | <b>┣ ⊹𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝: </b>{get_readable_file_size(download.torrent_info().uploaded)}"
                 msg += f"\n<b>┣ ⊹𝐑𝐚𝐭𝐢𝐨: </b>{round(download.torrent_info().ratio, 3)}"
                 msg += f" | <b>┣ ⊹𝐓𝐢𝐦𝐞: </b>{get_readable_time(download.torrent_info().seeding_time)}"
-                msg += f"\n<code>┗ /{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f"\n<b>┣ ⊹𝐔𝐬𝐞𝐫:</b> ️<a href='tg://user?id={download.message.from_user.id}'>{download.message.from_user.first_name}</a>"
+                msg += f"\n<b>┣ ⊹𝐄𝐥𝐚𝐩𝐬𝐞𝐝: </b>{get_readable_time(time() - download.message.date.timestamp())}"
+                msg += f"\n<code>┗ ⊹𝐂𝐚𝐧𝐜𝐞𝐥: /{BotCommands.CancelMirror} {download.gid()}</code>"
             else:
                 msg += f"\n<b>┣ ⊹𝐒𝐢𝐳𝐞: </b>{download.size()}"
             msg += "\n\n"
