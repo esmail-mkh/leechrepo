@@ -44,29 +44,29 @@ def stats(update, context):
     mem_t = get_readable_file_size(memory.total)
     mem_a = get_readable_file_size(memory.available)
     mem_u = get_readable_file_size(memory.used)
-    stats = f'<b>Commit Date:</b> {last_commit}\n\n'\
-            f'<b>Bot Uptime:</b> {currentTime}\n'\
-            f'<b>OS Uptime:</b> {osUptime}\n\n'\
-            f'<b>Total Disk Space:</b> {total}\n'\
-            f'<b>Used:</b> {used} | <b>Free:</b> {free}\n\n'\
-            f'<b>Upload:</b> {sent}\n'\
-            f'<b>Download:</b> {recv}\n\n'\
-            f'<b>CPU:</b> {cpuUsage}%\n'\
-            f'<b>RAM:</b> {mem_p}%\n'\
-            f'<b>DISK:</b> {disk}%\n\n'\
-            f'<b>Physical Cores:</b> {p_core}\n'\
-            f'<b>Total Cores:</b> {t_core}\n\n'\
-            f'<b>SWAP:</b> {swap_t} | <b>Used:</b> {swap_p}%\n'\
-            f'<b>Memory Total:</b> {mem_t}\n'\
-            f'<b>Memory Free:</b> {mem_a}\n'\
-            f'<b>Memory Used:</b> {mem_u}\n'
+    stats = f'<b>🔸𝐂𝐨𝐦𝐦𝐢𝐭 𝐃𝐚𝐭𝐞:</b> {last_commit}\n\n'\
+            f'<b>🔹𝐁𝐨𝐭 𝐔𝐩𝐭𝐢𝐦𝐞:</b> {currentTime}\n'\
+            f'<b>🔸𝐎𝐒 𝐔𝐩𝐭𝐢𝐦𝐞:</b> {osUptime}\n\n'\
+            f'<b>🔹𝐓𝐨𝐭𝐚𝐥 𝐃𝐢𝐬𝐤 𝐒𝐩𝐚𝐜𝐞:</b> {total}\n'\
+            f'<b>▪️𝐔𝐬𝐞𝐝:</b> {used} | <b>▫️𝐅𝐫𝐞𝐞:</b> {free}\n\n'\
+            f'<b>🔸𝐔𝐩𝐥𝐨𝐚𝐝:</b> {sent}\n'\
+            f'<b>🔹𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝:</b> {recv}\n\n'\
+            f'<b>🔸𝐂𝐏𝐔:</b> {cpuUsage}%\n'\
+            f'<b>🔹𝐑𝐀𝐌:</b> {mem_p}%\n'\
+            f'<b>🔸𝐃𝐈𝐒𝐊:</b> {disk}%\n\n'\
+            f'<b>🔹𝐏𝐡𝐲𝐬𝐢𝐜𝐚𝐥 𝐂𝐨𝐫𝐞𝐬:</b> {p_core}\n'\
+            f'<b>🔸𝐓𝐨𝐭𝐚𝐥 𝐂𝐨𝐫𝐞𝐬:</b> {t_core}\n\n'\
+            f'<b>▫️𝐒𝐖𝐀𝐏:</b> {swap_t} | <b>▪️𝐔𝐬𝐞𝐝:</b> {swap_p}%\n'\
+            f'<b>🔹𝐌𝐞𝐦𝐨𝐫𝐲 𝐓𝐨𝐭𝐚𝐥:</b> {mem_t}\n'\
+            f'<b>🔸𝐌𝐞𝐦𝐨𝐫𝐲 𝐅𝐫𝐞𝐞:</b> {mem_a}\n'\
+            f'<b>🔹𝐌𝐞𝐦𝐨𝐫𝐲 𝐔𝐬𝐞𝐝:</b> {mem_u}\n'
     sendMessage(stats, context.bot, update.message)
 
 
 def start(update, context):
     buttons = ButtonMaker()
-    buttons.buildbutton("Repo", "https://www.github.com/anasty17/mirror-leech-telegram-bot")
-    buttons.buildbutton("Report Group", "https://t.me/+PRRzqHd31XY3ZWZk")
+    buttons.buildbutton("SoulLand", "https://t.me/soullandsh27")
+    buttons.buildbutton("AnimeCity", "https://t.me/Anime0City")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
@@ -78,7 +78,7 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
         sendMarkup('Not Authorized user, deploy your own mirror-leech bot', context.bot, update.message, reply_markup)
 
 def restart(update, context):
-    restart_message = sendMessage("Restarting...", context.bot, update.message)
+    restart_message = sendMessage("𝘙𝘦𝘴𝘵𝘢𝘳𝘵𝘪𝘯𝘨...", context.bot, update.message)
     if Interval:
         Interval[0].cancel()
     alive.kill()
@@ -93,9 +93,9 @@ def restart(update, context):
 
 def ping(update, context):
     start_time = int(round(time() * 1000))
-    reply = sendMessage("Starting Ping", context.bot, update.message)
+    reply = sendMessage("𝐒𝐭𝐚𝐫𝐭𝐢𝐧𝐠 𝐏𝐢𝐧𝐠", context.bot, update.message)
     end_time = int(round(time() * 1000))
-    editMessage(f'{end_time - start_time} ms', reply)
+    editMessage(f'🔌{end_time - start_time} ms', reply)
 
 
 def log(update, context):
@@ -210,7 +210,7 @@ def main():
                         chat_id, msg_id = map(int, f)
                     msg = 'Restarted successfully!'
                 else:
-                    msg = 'Bot Restarted!'
+                    msg = '✅𝐁𝐨𝐭 𝐑𝐞𝐬𝐭𝐚𝐫𝐭𝐞𝐝!'
                 for tag, links in data.items():
                      msg += f"\n\n{tag}: "
                      for index, link in enumerate(links, start=1):
@@ -222,7 +222,7 @@ def main():
                              else:
                                  bot.sendMessage(cid, msg, 'HTML')
                              msg = ''
-                if 'Restarted successfully!' in msg and cid == chat_id:
+                if '✅𝐑𝐞𝐬𝐭𝐚𝐫𝐭𝐞𝐝 𝐬𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲!' in msg and cid == chat_id:
                      bot.editMessageText(msg, chat_id, msg_id, parse_mode='HTMl', disable_web_page_preview=True)
                      osremove(".restartmsg")
                 else:
@@ -231,7 +231,7 @@ def main():
     if ospath.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        bot.edit_message_text("Restarted successfully!", chat_id, msg_id)
+        bot.edit_message_text("✅𝐑𝐞𝐬𝐭𝐚𝐫𝐭𝐞𝐝 𝐬𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲!", chat_id, msg_id)
         osremove(".restartmsg")
 
     start_handler = CommandHandler(BotCommands.StartCommand, start, run_async=True)
