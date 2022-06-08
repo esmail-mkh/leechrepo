@@ -127,8 +127,8 @@ class QbDownloader:
                     if qbname is not None:
                         qbmsg, button = GoogleDriveHelper().drive_list(qbname, True)
                         if qbmsg:
-                            self.__onDownloadError("File/Folder is already available in Drive.")
-                            sendMarkup("Here are the search results:", self.__listener.bot, self.__listener.message, button)
+                            self.__onDownloadError("😁فایل/پوشه از قبل در Drive موجود است.")
+                            sendMarkup("در اینجا نتایج جستجو آمده است:", self.__listener.bot, self.__listener.message, button)
                     self.__dupChecked = True
             elif tor_info.state == "stalledDL":
                 if not self.__rechecked and 0.99989999999999999 < tor_info.progress < 1:
