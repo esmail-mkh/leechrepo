@@ -195,7 +195,7 @@ class MirrorListener:
         if not self.isPrivate and INCOMPLETE_TASK_NOTIFIER and DB_URI is not None:
             DbManger().rm_complete_task(self.message.link)
         msg = "<b>✔️𝐓𝐡𝐞 𝐭𝐚𝐬𝐤 𝐰𝐚𝐬 𝐜𝐨𝐦𝐩𝐥𝐞𝐭𝐞𝐝 𝐬𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲.</b>"
-        msg += f"\n<b>┏ 🔹𝐍𝐚𝐦𝐞: </b><code>{escape(name)}</code>\n<b>┃</b>\n<b>┣ 🔸𝐒𝐢𝐳𝐞: </b>{size}"
+        msg += f"\n\n<b>┏ 🔹𝐍𝐚𝐦𝐞: </b><code>{escape(name)}</code>\n<b>┃</b>\n<b>┣ 🔸𝐒𝐢𝐳𝐞: </b>{size}"
         if self.isLeech:
             msg += f'\n<b>┣ 🔹𝐓𝐨𝐭𝐚𝐥 𝐅𝐢𝐥𝐞𝐬: </b>{folders}'
             if typ != 0:
@@ -222,7 +222,7 @@ class MirrorListener:
                 if INDEX_URL is not None:
                     url_path = rutils.quote(f'{name}')
                     share_url = f'{INDEX_URL}/{url_path}'
-                    msg += f"\n┃\n<b>┣</b><a href='{share_url}'>🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
+                    msg += f"\n<b>┃</b>\n<b>┣</b><a href='{share_url}'>🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
                 else:
                     share_url = f'{INDEX_URL}/{url_path}'
                     msg += f"\n<b>┣</b><a href='{share_url}'>🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
