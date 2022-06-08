@@ -194,7 +194,8 @@ class MirrorListener:
     def onUploadComplete(self, link: str, size, files, folders, typ, name: str):
         if not self.isPrivate and INCOMPLETE_TASK_NOTIFIER and DB_URI is not None:
             DbManger().rm_complete_task(self.message.link)
-        msg = f"<b>┏ 🔹𝐍𝐚𝐦𝐞: </b><code>{escape(name)}</code>\n┃\n<b>┣ 🔸𝐒𝐢𝐳𝐞: </b>{size}"
+        msg = "<b>✔️𝐓𝐡𝐞 𝐭𝐚𝐬𝐤 𝐰𝐚𝐬 𝐜𝐨𝐦𝐩𝐥𝐞𝐭𝐞𝐝 𝐬𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲.</b>"
+        msg += f"\n<b>┏ 🔹𝐍𝐚𝐦𝐞: </b><code>{escape(name)}</code>\n<b>┃</b>\n<b>┣ 🔸𝐒𝐢𝐳𝐞: </b>{size}"
         if self.isLeech:
             msg += f'\n<b>┣ 🔹𝐓𝐨𝐭𝐚𝐥 𝐅𝐢𝐥𝐞𝐬: </b>{folders}'
             if typ != 0:
@@ -213,7 +214,7 @@ class MirrorListener:
                 if fmsg != '':
                     sendMessage(msg + fmsg, self.bot, self.message)
         else:
-            msg += f'\n┃\n<b>┣ 🔹𝐓𝐲𝐩𝐞: </b>{typ}'
+            msg += f'\n<b>┃</b>\n<b>┣ 🔹𝐓𝐲𝐩𝐞: </b>{typ}'
             if ospath.isdir(f'{DOWNLOAD_DIR}{self.uid}/{name}'):
                 msg += f'\n<b>┣ 🔸𝐒𝐮𝐛𝐅𝐨𝐥𝐝𝐞𝐫𝐬: </b>{folders}'
                 msg += f'\n<b>┣ 🔹𝐅𝐢𝐥𝐞𝐬: </b>{files}'
@@ -221,12 +222,12 @@ class MirrorListener:
                 if INDEX_URL is not None:
                     url_path = rutils.quote(f'{name}')
                     share_url = f'{INDEX_URL}/{url_path}'
-                    msg += f"\n┃\n┣<a href='{share_url}'>🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
+                    msg += f"\n┃\n<b>┣</b><a href='{share_url}'>🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
                 else:
                     share_url = f'{INDEX_URL}/{url_path}'
-                    msg += f"\n┣<a href='{share_url}'>🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
+                    msg += f"\n<b>┣</b><a href='{share_url}'>🔺𝐃𝐢𝐫𝐞𝐜𝐭 𝐋𝐢𝐧𝐤</a>"
 
-            msg += f'\n┃\n<b>┗ 👤𝐔𝐬𝐞𝐫: </b>{self.tag}'
+            msg += f'\n<b>┃</b>\n<b>┗ 👤𝐔𝐬𝐞𝐫: </b>{self.tag}'
             buttons = ButtonMaker()
             buttons.buildbutton("☁️ Drive Link", link)
             LOGGER.info(f'Done Uploading {name}')
@@ -240,7 +241,7 @@ class MirrorListener:
                     buttons.buildbutton("⚡ Direct Link", share_url)
                     if VIEW_LINK:
                         share_urls = f'{INDEX_URL}/{url_path}?a=view'
-                        buttons.buildbutton("🌐 Drive Link", share_urls)
+                        buttons.buildbutton("🌐 View Link", share_urls)
 
             if BUTTON_FOUR_NAME is not None and BUTTON_FOUR_URL is not None:
                 buttons.buildbutton(f"{BUTTON_FOUR_NAME}", f"{BUTTON_FOUR_URL}")
