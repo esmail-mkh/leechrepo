@@ -36,9 +36,9 @@ def __onDownloadStarted(api, gid):
             if sname is not None:
                 smsg, button = GoogleDriveHelper().drive_list(sname, True)
                 if smsg:
-                    dl.getListener().onDownloadError('File/Folder already available in Drive.\n\n')
+                    dl.getListener().onDownloadError('😁فایل/پوشه از قبل در Drive موجود است.\n\n')
                     api.remove([download], force=True, files=True)
-                    return sendMarkup("Here are the search results:", dl.getListener().bot, dl.getListener().message, button)
+                    return sendMarkup("در اینجا نتایج جستجو آمده است:", dl.getListener().bot, dl.getListener().message, button)
     except Exception as e:
         LOGGER.error(f"{e} onDownloadStart: {gid} stop duplicate didn't pass")
 
