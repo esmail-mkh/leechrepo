@@ -193,12 +193,12 @@ class MirrorListener:
     def onUploadComplete(self, link: str, size, files, folders, typ, name: str):
         if not self.isPrivate and INCOMPLETE_TASK_NOTIFIER and DB_URI is not None:
             DbManger().rm_complete_task(self.message.link)
-        msg = f"<b>┏ Name: </b><code>{escape(name)}</code>\n┃\n<b>┣ Size: </b>{size}"
+        msg = f"<b>┏ 🔹Name: </b><code>{escape(name)}</code>\n┃\n<b>┣ 🔸Size: </b>{size}"
         if self.isLeech:
-            msg += f'\n<b>┣ Total Files: </b>{folders}'
+            msg += f'\n<b>┣ 🔹Total Files: </b>{folders}'
             if typ != 0:
-                msg += f'\n<b>┣ Corrupted Files: </b>{typ}'
-            msg += f'\n<b>┗ User: </b>{self.tag}\n\n'
+                msg += f'\n<b>┣ 🔸Corrupted Files: </b>{typ}'
+            msg += f'\n<b>┗ 👤User: </b>{self.tag}\n\n'
             if not files:
                 sendMessage(msg, self.bot, self.message)
             else:
@@ -212,20 +212,20 @@ class MirrorListener:
                 if fmsg != '':
                     sendMessage(msg + fmsg, self.bot, self.message)
         else:
-            msg += f'\n┃\n<b>┣ Type: </b>{typ}'
+            msg += f'\n┃\n<b>┣ 🔹Type: </b>{typ}'
             if ospath.isdir(f'{DOWNLOAD_DIR}{self.uid}/{name}'):
-                msg += f'\n<b>┣ SubFolders: </b>{folders}'
-                msg += f'\n<b>┣ Files: </b>{files}'
+                msg += f'\n<b>┣ 🔸SubFolders: </b>{folders}'
+                msg += f'\n<b>┣ 🔹Files: </b>{files}'
             else:
                 if INDEX_URL is not None:
                     url_path = rutils.quote(f'{name}')
                     share_url = f'{INDEX_URL}/{url_path}'
-                    msg += f"\n<a href='{share_url}'>┣ Direct Link</a>"
+                    msg += f"\n┃\n<a href='{share_url}'>┣ 📎Direct Link</a>"
                else:
                    share_url = f'{INDEX_URL}/{url_path}'
-                    msg += f"\n<a href='{share_url}'>┣ Direct Link</a>"
+                    msg += f"\n<a href='{share_url}'>┣ 📎Direct Link</a>"
 
-            msg += f'\n┃\n<b>┗ User: </b>{self.tag}'
+            msg += f'\n┃\n<b>┗ 👤User: </b>{self.tag}'
             buttons = ButtonMaker()
             buttons.buildbutton("☁️ Drive Link", link)
             LOGGER.info(f'Done Uploading {name}')
