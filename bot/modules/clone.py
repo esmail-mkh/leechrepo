@@ -53,7 +53,7 @@ def _clone(message, bot, multi=0):
             LOGGER.info('Checking File/Folder if already in Drive...')
             smsg, button = gd.drive_list(name, True, True)
             if smsg:
-                msg3 = "File/Folder is already available in Drive.\nHere are the search results:"
+                msg3 = "😁فایل/پوشه از قبل در Drive موجود است.\n در اینجا نتایج جستجو آمده است:"
                 return sendMarkup(msg3, bot, message, button)
         if multi > 1:
             sleep(4)
