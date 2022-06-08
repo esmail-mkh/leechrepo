@@ -45,21 +45,21 @@ def stats(update, context):
     mem_a = get_readable_file_size(memory.available)
     mem_u = get_readable_file_size(memory.used)
     stats = f'<b>🔸𝐂𝐨𝐦𝐦𝐢𝐭 𝐃𝐚𝐭𝐞:</b> {last_commit}\n\n'\
-            f'<b>🔹𝐁𝐨𝐭 𝐔𝐩𝐭𝐢𝐦𝐞:</b> {currentTime}\n'\
-            f'<b>🔸𝐎𝐒 𝐔𝐩𝐭𝐢𝐦𝐞:</b> {osUptime}\n\n'\
+            f'<b>⏰𝐁𝐨𝐭 𝐔𝐩𝐭𝐢𝐦𝐞:</b> {currentTime}\n'\
+            f'<b>⏱️𝐎𝐒 𝐔𝐩𝐭𝐢𝐦𝐞:</b> {osUptime}\n\n'\
             f'<b>🔹𝐓𝐨𝐭𝐚𝐥 𝐃𝐢𝐬𝐤 𝐒𝐩𝐚𝐜𝐞:</b> {total}\n'\
             f'<b>▪️𝐔𝐬𝐞𝐝:</b> {used} | <b>▫️𝐅𝐫𝐞𝐞:</b> {free}\n\n'\
-            f'<b>🔸𝐔𝐩𝐥𝐨𝐚𝐝:</b> {sent}\n'\
-            f'<b>🔹𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝:</b> {recv}\n\n'\
-            f'<b>🔸𝐂𝐏𝐔:</b> {cpuUsage}%\n'\
-            f'<b>🔹𝐑𝐀𝐌:</b> {mem_p}%\n'\
-            f'<b>🔸𝐃𝐈𝐒𝐊:</b> {disk}%\n\n'\
+            f'<b>📤𝐔𝐩𝐥𝐨𝐚𝐝:</b> {sent}\n'\
+            f'<b>📥𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝:</b> {recv}\n\n'\
+            f'<b>╔𝐂𝐏𝐔:</b> {cpuUsage}%\n'\
+            f'<b>╠𝐑𝐀𝐌:</b> {mem_p}%\n'\
+            f'<b>╚𝐃𝐈𝐒𝐊:</b> {disk}%\n\n'\
             f'<b>🔹𝐏𝐡𝐲𝐬𝐢𝐜𝐚𝐥 𝐂𝐨𝐫𝐞𝐬:</b> {p_core}\n'\
             f'<b>🔸𝐓𝐨𝐭𝐚𝐥 𝐂𝐨𝐫𝐞𝐬:</b> {t_core}\n\n'\
             f'<b>▫️𝐒𝐖𝐀𝐏:</b> {swap_t} | <b>▪️𝐔𝐬𝐞𝐝:</b> {swap_p}%\n'\
-            f'<b>🔹𝐌𝐞𝐦𝐨𝐫𝐲 𝐓𝐨𝐭𝐚𝐥:</b> {mem_t}\n'\
+            f'<b>┏𝐌𝐞𝐦𝐨𝐫𝐲 𝐓𝐨𝐭𝐚𝐥:</b> {mem_t}\n'\
             f'<b>🔸𝐌𝐞𝐦𝐨𝐫𝐲 𝐅𝐫𝐞𝐞:</b> {mem_a}\n'\
-            f'<b>🔹𝐌𝐞𝐦𝐨𝐫𝐲 𝐔𝐬𝐞𝐝:</b> {mem_u}\n'
+            f'<b>┗𝐌𝐞𝐦𝐨𝐫𝐲 𝐔𝐬𝐞𝐝:</b> {mem_u}\n'
     sendMessage(stats, context.bot, update.message)
 
 
